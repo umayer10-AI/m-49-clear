@@ -11,6 +11,7 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
+import { redirect } from "next/navigation";
 import React from 'react';
 import { useForm } from "react-hook-form";
 
@@ -28,6 +29,13 @@ const About = () => {
             },
             body: JSON.stringify(v)
         })
+        const data = await res.json()
+        console.log(data)
+
+        if(data.ok){
+            alert("Data Successfully")
+            redirect("/")
+        }
 
     }
 
