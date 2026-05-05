@@ -2,8 +2,16 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 5000
 
+const users = [
+    {id: 1, name: "Umayer", email: "jhon@example.com"},
+    {id: 2, name: "Umayer", email: "jhon@example.com"},
+    {id: 3, name: "Umayer", email: "jhon@example.com"},
+    {id: 4, name: "Umayer", email: "jhon@example.com"},
+    {id: 5, name: "Umayer", email: "jhon@example.com"},
+]
+
 app.get('/', (req, res) => {
-  res.send('Umayer Ahmad')
+  res.send(users)
 })
 
 app.get('/about', (req, res) => {
