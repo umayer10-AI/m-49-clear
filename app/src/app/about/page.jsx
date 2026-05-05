@@ -18,8 +18,17 @@ const About = () => {
 
     const {register,handleSubmit,formState: { errors }} = useForm()
 
-    const a = (v) => {
+    const a = async (v) => {
         console.log(v)
+
+        const res = await fetch("http://localhost:5000", {
+            method: "POST",
+            headers: {
+                'content-type' : "application/json"
+            },
+            body: JSON.stringify(v)
+        })
+
     }
 
     return (
@@ -40,12 +49,12 @@ const About = () => {
             }}
           >
             <Label>Name</Label>
-            <Input placeholder="John Doe" />
+            <Input placeholder="John Doe" {...register("name", { required: true })}/>
             <FieldError />
           </TextField>
           <TextField isRequired name="email" type="email">
             <Label>Email</Label>
-            <Input placeholder="john@example.com" />
+            <Input placeholder="john@example.com" {...register("email", { required: true })}/>
             <FieldError />
           </TextField>
           
