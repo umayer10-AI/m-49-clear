@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 const g = async () => {
@@ -8,12 +9,12 @@ const g = async () => {
 const page = async () => {
 
   const data = await g()
-  console.log(data)
 
   return (
     <div>
       <h2>Home Page</h2>
       <h2>Cards: {data.length}</h2>
+      <Link href={'/about'} className='bg-blue-500 font-bold py-2 px-4 rounded-2xl'>Back</Link>
       <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
                 {
                     data.map(v => (
